@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drops Tracker</title>
+  <meta name="description" content="A browser extension that checks whether Twitch is really adding Drops watch-minutes, and warns you when it is not.">
+  <link rel="icon" href="/drops-tracker/icon.png">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a href="/">hovjsyy.dev</a>
+      <nav>
+        <a href="/drops-tracker/" aria-current="page">Drops Tracker</a>
+        <a href="/drops-tracker/privacy/">Privacy</a>
+        <a href="https://github.com/hooov/drops-tracker/issues">Support</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <div class="product">
+        <img src="/drops-tracker/icon.png" alt="" width="64" height="64">
+        <h1>Drops Tracker</h1>
+      </div>
+      <p class="lede">Tells you whether Twitch is really adding Drops watch-minutes right now, and warns you when it is not.</p>
+
+      <div class="buttons">
+        <a class="btn primary" href="https://github.com/hooov/drops-tracker#install">Install</a>
+        <a class="btn" href="https://github.com/hooov/drops-tracker">Source on GitHub</a>
+      </div>
+
+      <figure class="shot">
+        <img src="/drops-tracker/hero.png" alt="Drops Tracker on a Twitch channel: a progress chip in the chat row and the panel open above it, showing a drop earning with 30 of the last 30 minutes counted" width="2560" height="1800">
+        <figcaption>The chip sits beside your channel points. Click it for the full panel.</figcaption>
+      </figure>
+
+      <h2>Why it exists</h2>
+      <p>Twitch's Drops progress bars only update when the page loads, and watch-time sometimes stops being credited while the stream keeps playing normally. You find out an hour later. Drops Tracker asks Twitch once a minute how many minutes you have, and treats rising minutes as the only proof that you are earning.</p>
+
+      <h2>What it shows</h2>
+      <ul>
+        <li><strong>A chip in the chat row</strong> with your progress, or <code>Hung</code> when minutes stop rising while a stream that can earn is open.</li>
+        <li><strong>A toolbar badge</strong> and a desktop notification when earning stops, plus a small on-page warning that stays visible in fullscreen.</li>
+        <li><strong>A likely cause</strong> when it stalls: paused, frozen player, too many streams open, or a drop waiting to be claimed.</li>
+        <li><strong>My Drops, All Drops and Badges tabs</strong> listing what the current channel can earn, every campaign running on Twitch, and channel badges.</li>
+      </ul>
+
+      <figure class="shot">
+        <img src="/drops-tracker/chip-states.png" alt="The chip in four states: earning at 85 percent, a compact ring, Hung 6m in red, and Stopped in amber" width="2624" height="244">
+        <figcaption>Green is earning, amber needs attention, red is not counting.</figcaption>
+      </figure>
+
+      <h2>What it never does</h2>
+      <p>It is read-only. It never claims a drop, never simulates watching, and never opens a stream for you. It talks only to Twitch, and nothing is sent to me or anyone else. Details are in the <a href="/drops-tracker/privacy/">privacy policy</a>.</p>
+
+      <div class="note">
+        <p>Unofficial and not affiliated with Twitch. It uses the same private requests as twitch.tv, which Twitch can change without notice.</p>
+      </div>
+
+      <h2>Support</h2>
+      <p>Report a problem or ask a question on <a href="https://github.com/hooov/drops-tracker/issues">GitHub Issues</a>. The panel's Debug tab has a <strong>Copy debug info</strong> button whose output is safe to paste there: it never includes your Twitch login.</p>
+    </div>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap"><a href="/">hovjsyy.dev</a> · <a href="/drops-tracker/privacy/">Privacy</a> · Open source under GPL-3.0</div>
+  </footer>
+</body>
+</html>

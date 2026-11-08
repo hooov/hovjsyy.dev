@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drops Tracker Privacy</title>
+  <meta name="description" content="Privacy policy for the Drops Tracker browser extension.">
+  <link rel="icon" href="/drops-tracker/icon.png">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a href="/">hovjsyy.dev</a>
+      <nav>
+        <a href="/drops-tracker/">Drops Tracker</a>
+        <a href="/drops-tracker/privacy/" aria-current="page">Privacy</a>
+        <a href="https://github.com/hooov/drops-tracker/issues">Support</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <h1>Drops Tracker privacy policy</h1>
+      <p class="meta">Effective November 8, 2026</p>
+
+      <div class="note">
+        <p><strong>Short version:</strong> Drops Tracker has no servers and collects nothing for its developer. It reads your Twitch session in your own browser so it can ask Twitch about your Drops progress. That data goes only to Twitch, and everything the extension keeps stays on your device.</p>
+      </div>
+
+      <p>This policy covers the Drops Tracker browser extension (the "extension"). It is made by an independent developer and is not affiliated with Twitch. The full source code is public at <a href="https://github.com/hooov/drops-tracker">github.com/hooov/drops-tracker</a>, so everything below can be checked.</p>
+
+      <h2>What the extension accesses, and why</h2>
+
+      <h3>Your Twitch sign-in token</h3>
+      <p>Twitch keeps your login in a browser cookie named <code>auth-token</code>. Once a minute, the extension reads it and sends it to Twitch's own server (<code>gql.twitch.tv</code>), exactly as twitch.tv does, to request your Drops inventory and progress. The token is read fresh for each request. It is never saved, logged, shown, or sent anywhere other than Twitch.</p>
+
+      <h3>Your open Twitch tabs</h3>
+      <p>The extension looks only at tabs on <code>twitch.tv</code>. From their addresses it learns which channels you have open. Inside those tabs it reads the state of the video player: whether it is playing, paused, muted, hidden or showing an ad, how far the video has advanced, and its resolution. This is how it works out why minutes have stopped. It does not read tabs on any other website.</p>
+
+      <h3>Data Twitch returns</h3>
+      <p>Twitch's answers include your Drops campaigns, minutes watched, unclaimed rewards, the channel Twitch is crediting, channel names, and campaign images. The images load from Twitch's servers.</p>
+
+      <h3>Twitch's own page requests</h3>
+      <p>Twitch occasionally changes the identifiers its page uses to request data. To keep working, the extension reads the requests that twitch.tv pages send to <code>gql.twitch.tv</code> and keeps only those identifiers for the four requests it uses. It does not read headers, so it never sees your token this way, and it keeps nothing else from those requests.</p>
+
+      <h3>The Drops campaigns page</h3>
+      <p>When you open the All Drops tab, the extension reads the campaign list from Twitch's response on <code>twitch.tv/drops/campaigns</code>. If that page is not already open, it opens it in a background tab and closes it once the list has loaded. That page has no video.</p>
+
+      <h2>What it stores</h2>
+      <p>Everything is kept in your browser's local extension storage, on your device only:</p>
+      <ul>
+        <li>The latest tracking state: channels, drops, progress, and the current verdict.</li>
+        <li>A log of watched minutes, capped at one day (1,440 entries) with the oldest removed first. Each entry records the channel, whether Twitch credited the minute, and the player details listed above.</li>
+        <li>Your settings.</li>
+        <li>The request identifiers learned from Twitch, and the cached All Drops list.</li>
+      </ul>
+      <p>None of this leaves your device unless you choose to copy it. Removing the extension deletes all of it.</p>
+
+      <h2>Who it is shared with</h2>
+      <p>Only Twitch, and only to show you your Drops progress. Twitch's handling of that data is covered by the <a href="https://www.twitch.tv/p/legal/privacy-notice/">Twitch Privacy Notice</a>.</p>
+      <p>The extension has no analytics, no tracking, no ads, and no server of its own. The developer receives no data from it. No data is sold, and none is shared with any other party.</p>
+
+      <h2>Things you do yourself</h2>
+      <ul>
+        <li><strong>Copy debug info</strong> copies a summary to your clipboard only when you click it. It is built from a fixed list of fields, so it includes channels and progress but never your token. If you paste it into a bug report, it becomes public on GitHub.</li>
+        <li><strong>Notifications</strong> are shown by your browser on your device.</li>
+        <li><strong>Auto-refresh</strong> of the Drops page and <strong>auto-reload</strong> of a stalled stream tab are both off by default and only reload Twitch tabs you already have open.</li>
+      </ul>
+
+      <h2>Chrome Web Store Limited Use</h2>
+      <p>Drops Tracker's use of information complies with the <a href="https://developer.chrome.com/docs/webstore/program-policies/policies">Chrome Web Store User Data Policy</a>, including the <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Limited Use</a> requirements. User data is used only to provide the extension's single purpose, which is showing whether your Twitch Drops progress is rising. It is not used for advertising, not sold, and not read by any person.</p>
+
+      <h2>Children</h2>
+      <p>The extension is meant for Twitch users and does not knowingly collect anything about anyone, children included.</p>
+
+      <h2>Changes</h2>
+      <p>If this policy changes, the new version will be posted on this page with a new effective date. The history of this page is public in the site's repository.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about privacy: open an issue at <a href="https://github.com/hooov/drops-tracker/issues">github.com/hooov/drops-tracker/issues</a>.</p>
+    </div>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap"><a href="/">hovjsyy.dev</a> · <a href="/drops-tracker/">Drops Tracker</a></div>
+  </footer>
+</body>
+</html>
