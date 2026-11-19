@@ -22,7 +22,7 @@
   <main>
     <div class="wrap">
       <h1>Drops Tracker privacy policy</h1>
-      <p class="meta">Effective November 9, 2026</p>
+      <p class="meta">Effective November 19, 2026</p>
 
       <div class="note">
         <p><strong>Short version:</strong> Drops Tracker has no servers and collects nothing for its developer. It reads your Twitch session in your own browser so it can ask Twitch about your Drops progress. That data goes only to Twitch, and everything the extension keeps stays on your device.</p>
@@ -42,7 +42,7 @@
       <p>Twitch's answers include your Drops campaigns, minutes watched, unclaimed rewards, the channel Twitch is crediting, channel names, and campaign images. The images load from the addresses Twitch supplies, which are Twitch's own servers.</p>
 
       <h3>Twitch's own page requests</h3>
-      <p>Twitch occasionally changes the identifiers its page uses to request data. To keep working, the extension reads the requests that twitch.tv pages send to <code>gql.twitch.tv</code> and keeps only those identifiers for the four requests it uses. It does not read headers, so it never sees your token this way, and it keeps nothing else from those requests.</p>
+      <p>Twitch occasionally changes the identifiers its page uses to request data. To keep working, the extension reads the requests that twitch.tv pages send to <code>gql.twitch.tv</code> and keeps only those identifiers for the requests it uses. It also keeps a list of which requests Twitch's page makes, so a change on Twitch's side can be found: each request's name and identifier, the names of its settings and their types (yes/no settings as they were sent, never any other value), the kind of page it came from (a channel page, the Drops page, the home page, never which channel), when it was last seen, and how often. That list holds at most 150 requests, the oldest removed first. It does not read headers, so it never sees your token this way, and it keeps nothing else from those requests.</p>
 
       <h3>The Drops campaigns page</h3>
       <p>When you open the All Drops tab, the extension reads the campaign list from Twitch's response on <code>twitch.tv/drops/campaigns</code>. If that page is not already open, it opens it in a background tab and closes it once the list has loaded. That page has no video.</p>
@@ -53,7 +53,7 @@
         <li>The latest tracking state: channels, drops, progress, and the current verdict.</li>
         <li>A log of watched minutes, capped at one day (1,440 entries) with the oldest removed first. Each entry records the channel, whether Twitch credited the minute, and the player details listed above.</li>
         <li>Your settings.</li>
-        <li>The request identifiers learned from Twitch, and the cached All Drops list.</li>
+        <li>The request identifiers learned from Twitch, the list of Twitch's page requests described above, and the cached All Drops list.</li>
       </ul>
       <p>None of this leaves your device unless you choose to copy it. Removing the extension deletes all of it.</p>
 
