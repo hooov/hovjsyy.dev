@@ -33,7 +33,7 @@
       <h2>What the extension accesses, and why</h2>
 
       <h3>Your Twitch sign-in token</h3>
-      <p>Twitch keeps your login in a browser cookie named <code>auth-token</code>. Once a minute, the extension reads it and sends it to Twitch's own server (<code>gql.twitch.tv</code>), exactly as twitch.tv does, to request your Drops inventory and progress. The token is read fresh for each request. It is never saved, logged, shown, or sent anywhere other than Twitch.</p>
+      <p>Twitch keeps your login in a browser cookie named <code>auth-token</code>. Once a minute, and once more when a channel page opens, the extension reads it and sends it to Twitch's own server (<code>gql.twitch.tv</code>), exactly as twitch.tv does, to request your Drops inventory and progress. The token is read fresh for each request. It is never saved, logged, shown, or sent anywhere other than Twitch.</p>
 
       <h3>Your open Twitch tabs</h3>
       <p>The extension looks only at tabs on <code>twitch.tv</code>. From their addresses it learns which channels you have open. Inside those tabs it reads the state of the video player: whether it is playing, paused, muted, hidden or showing an ad, how far the video has advanced, and its resolution. This is how it works out why minutes have stopped. It does not read tabs on any other website.</p>
