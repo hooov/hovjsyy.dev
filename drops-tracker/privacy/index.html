@@ -47,8 +47,8 @@
       <h3>The Drops campaigns page</h3>
       <p>When you open the All Drops tab, the extension reads the campaign list from Twitch's response on <code>twitch.tv/drops/campaigns</code>. If that page is not already open, it opens it in a background tab and closes it once the list has loaded. That page has no video.</p>
 
-      <h3>Reward names on channel pages</h3>
-      <p>Some reward campaigns give a different reward each day, and Twitch names each day's reward only in an answer its own channel page receives. On twitch.tv pages other than the Drops inventory page, the extension reads that one answer as Twitch's page receives it and keeps only each day's reward name and image address, so the panel can show the same reward Twitch shows. It does not keep your progress from that answer, does not send it anywhere, and leaves every other request on the page untouched.</p>
+      <h3>Reward names and finished rewards on channel pages</h3>
+      <p>Some reward campaigns give a different reward each day, and Twitch names each day's reward only in an answer its own channel page receives. On twitch.tv pages other than the Drops inventory page, the extension reads that one answer as Twitch's page receives it and keeps each day's reward name and image address, so the panel can show the same reward Twitch shows. The same answer says which reward drops you have finished; for some rewards, no other answer does. It keeps the identifiers of those reward drops, when their campaigns end and when it read them, so a finished campaign is not shown as one still to earn. It keeps no other progress from that answer, does not send it anywhere, and leaves every other request on the page untouched.</p>
 
       <h2>What it stores</h2>
       <p>Everything is kept in your browser's local extension storage, on your device only:</p>
@@ -58,6 +58,7 @@
         <li>A record of the last 10 times Twitch credited a drop on a channel its own lists did not name for that drop: the channel, the drop and its campaign, and when. It is kept so a change on Twitch's side can be found. It has no time limit; the oldest is removed first.</li>
         <li>Your settings.</li>
         <li>The request identifiers learned from Twitch, the list of Twitch's page requests described above, the cached All Drops list, and the daily reward names and images described above, for at most 20 campaigns, each removed when its campaign ends.</li>
+        <li>Which reward drops Twitch says you have finished, described above: at most 100, each removed when its campaign ends.</li>
       </ul>
       <p>None of this leaves your device unless you choose to copy it. Removing the extension deletes all of it.</p>
 
