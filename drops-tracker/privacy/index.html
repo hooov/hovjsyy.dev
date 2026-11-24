@@ -22,7 +22,7 @@
   <main>
     <div class="wrap">
       <h1>Drops Tracker privacy policy</h1>
-      <p class="meta">Effective November 22, 2026</p>
+      <p class="meta">Effective November 24, 2026</p>
 
       <div class="note">
         <p><strong>Short version:</strong> Drops Tracker has no servers and collects nothing for its developer. It reads your Twitch session in your own browser so it can ask Twitch about your Drops progress. That data goes only to Twitch, and everything the extension keeps stays on your device.</p>
@@ -33,7 +33,7 @@
       <h2>What the extension accesses, and why</h2>
 
       <h3>Your Twitch sign-in token</h3>
-      <p>Twitch keeps your login in a browser cookie named <code>auth-token</code>. Once a minute, and once more when a channel page opens, the extension reads it and sends it to Twitch's own server (<code>gql.twitch.tv</code>), exactly as twitch.tv does, to request your Drops inventory and progress. The token is read fresh for each request. It is never saved, logged, shown, or sent anywhere other than Twitch.</p>
+      <p>Twitch keeps your login in a browser cookie named <code>auth-token</code>. Once a minute, and once more when a channel page opens, the extension reads it and sends it to Twitch's own server (<code>gql.twitch.tv</code>), exactly as twitch.tv does, to request your Drops inventory and progress. The token is read fresh for each request. It is never saved, logged, shown, or sent anywhere other than Twitch. A short one-way fingerprint of it, which the token cannot be worked out from, is held in memory until the browser closes, only to notice another account signing in.</p>
 
       <h3>Your open Twitch tabs</h3>
       <p>The extension looks only at tabs on <code>twitch.tv</code>. From their addresses it learns which channels you have open. Inside those tabs it reads the state of the video player: whether it is playing, paused, muted, hidden or showing an ad, how far the video has advanced, and its resolution. This is how it works out why minutes have stopped. It does not read tabs on any other website.</p>
@@ -45,7 +45,7 @@
       <p>Twitch occasionally changes the identifiers its page uses to request data. To keep working, the extension reads the requests that twitch.tv pages send to <code>gql.twitch.tv</code> and keeps only those identifiers for the requests it uses. It also keeps a list of which requests Twitch's page makes, so a change on Twitch's side can be found: each request's name and identifier, the names of its settings and their types (yes/no settings as they were sent, never any other value), the kind of page it came from (a channel page, the Drops page, the home page, never which channel), when it was last seen, and how often. That list holds at most 150 requests, the oldest removed first. It does not read headers, so it never sees your token this way, and it keeps nothing else from those requests.</p>
 
       <h3>The Drops campaigns page</h3>
-      <p>When you open the All Drops tab, the extension reads the campaign list from Twitch's response on <code>twitch.tv/drops/campaigns</code>. If that page is not already open, it opens it in a background tab and closes it once the list has loaded. That page has no video.</p>
+      <p>When you open the All Drops tab, press Load in the Badges tab, or visit <code>twitch.tv/drops/campaigns</code> yourself, the extension reads the campaign list from Twitch's response on that page. For the All Drops tab and for Load, it opens that page in a background tab when it needs a newer list, and closes it once the list has loaded. That page has no video.</p>
 
       <h3>Reward names and finished rewards on channel pages</h3>
       <p>Some reward campaigns give a different reward each day, and Twitch names each day's reward only in an answer its own channel page receives. On twitch.tv pages other than the Drops inventory page, the extension reads that one answer as Twitch's page receives it and keeps each day's reward name and image address, so the panel can show the same reward Twitch shows. The same answer says which reward drops you have finished; for some rewards, no other answer does. It keeps the identifiers of those reward drops, when their campaigns end and when it read them, so a finished campaign is not shown as one still to earn. It keeps no other progress from that answer, does not send it anywhere, and leaves every other request on the page untouched.</p>
@@ -59,6 +59,7 @@
         <li>Your settings.</li>
         <li>The request identifiers learned from Twitch, the list of Twitch's page requests described above, the cached All Drops list, and the daily reward names and images described above, for at most 20 campaigns, each removed when its campaign ends.</li>
         <li>Which reward drops Twitch says you have finished, described above: at most 100, each removed when its campaign ends.</li>
+        <li>The badge campaigns seen on channels you opened, so the Badges tab can list the badges you have not earned: their names, dates, images, details links, categories, badge names, watch minutes and repeat settings. At most 100, each removed when its campaign ends, and never which channel.</li>
       </ul>
       <p>None of this leaves your device unless you choose to copy it. Removing the extension deletes all of it.</p>
 
@@ -69,7 +70,7 @@
       <h2>Things you do yourself</h2>
       <ul>
         <li><strong>Copy debug info</strong> and <strong>Copy log</strong>, both shown only with Developer mode on in the Settings tab, copy to your clipboard only when you click them. They are built from a fixed list of fields and never include your token, but they do include which channels you watched, minute by minute, for up to a day, the channels in the record of credited drops above, and your progress. If you paste them into a bug report, they become public on GitHub.</li>
-        <li><strong>Notifications</strong> are shown by your browser on your device. The one for a drop ready to claim can be switched off with Claim reminders in the Settings tab. The one saying a drop with no claim step was probably earned is shown once per drop and cannot be switched off.</li>
+        <li><strong>Notifications</strong> are shown by your browser on your device. The one for a drop ready to claim can be switched off with Claim reminders in the Settings tab. The one saying a drop with no claim step was probably earned is shown once per drop, the one saying a reward campaign is finished once per campaign, and neither can be switched off.</li>
         <li><strong>Auto-refresh</strong> of the Drops page and <strong>auto-reload</strong> of a stalled stream tab are both on by default, can be switched off in the Settings tab, and only reload Twitch tabs you already have open.</li>
       </ul>
 
